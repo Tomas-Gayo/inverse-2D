@@ -1,4 +1,4 @@
-# PEC2_Platform_Game
+# Inverse 2D (Platforms Game)
 
 En esta PEC 2 se ha adaptado el primer nivel de Super Mario Bross. El personaje principal es un fantasma llamado Reji, su objetivo principal es conseguir llegar a un portal que le lleve de vuelta a su mundo natal. Su antagonista, un champiñon malvado, ara todo lo posible para impedir que Reji sea capaz de conseguir su meta.
 
