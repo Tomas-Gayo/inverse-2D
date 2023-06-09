@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("Dependencies")]
     public InputReader InputReader;
     public CircleChecker GroundChecker;
     [Header("Configuration")]
-    public MovementData MovementData;
     public Transform GroundPoint;
 
-    public Movement Movement { get; set; }
+    [Header("Actions")]
+    [SerializeField] private Movement movement;
+    [SerializeField] private Jump jump;
+
 
     // References
     Rigidbody2D rb;
+
     // Private variables
     float x_Axis;
     float xMovement;
@@ -36,19 +39,24 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region Initialization
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     private void Start()
     {
-        Movement = new Movement(MovementData.Speed, MovementData.JumpForce);
         x_Axis = 0;
         xMovement = 0.0f;
         yMovement = 0.0f;
         isJumping = false;
+    }
+    #endregion
+
+    private void Update()
+    {
+        UpdateJump();
     }
 
     private void FixedUpdate()
@@ -58,16 +66,19 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 UpdateMovement()
     {
+        xMovement = movement.CalculateHoritzontal(x_Axis, Time.fixedDeltaTime);
+
+        return new Vector2(xMovement, rb.velocity.y);
+    }
+
+    private void UpdateJump()
+    {
         if (isJumping && GroundChecker.HasContanctWith(GroundPoint.position))
         {
             isJumping = false;
-            yMovement = Movement.CalculateVertical(rb.mass);
+            yMovement = jump.CalculateForce(rb.mass);
             rb.AddForce(new Vector2(0, yMovement), ForceMode2D.Impulse);
         }
-
-        xMovement = Movement.CalculateHoritzontal(x_Axis, Time.fixedDeltaTime);
-
-        return new Vector2(xMovement, rb.velocity.y);
     }
 
     #region Inputs Listeners

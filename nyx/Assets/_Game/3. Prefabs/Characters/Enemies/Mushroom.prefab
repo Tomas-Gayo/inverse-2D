@@ -65,7 +65,7 @@ MonoBehaviour:
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4008503726953686079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
   onTriggerStay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4008503726953686079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
@@ -283,8 +283,6 @@ GameObject:
   - component: {fileID: 6963691363130237372}
   - component: {fileID: 6963691363130237375}
   - component: {fileID: 6963691363130237390}
-  - component: {fileID: 4008503726953686079}
-  - component: {fileID: 3166015544576530852}
   m_Layer: 7
   m_Name: Mushroom
   m_TagString: Enemy
@@ -307,7 +305,6 @@ Transform:
   - {fileID: 3569408360951039015}
   - {fileID: 3569408361883680655}
   - {fileID: 6095865842982492987}
-  - {fileID: 8989406988490417971}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -389,76 +386,6 @@ MonoBehaviour:
   animator: {fileID: 6963691363130237372}
   enemy: {fileID: 6963691363130237375}
   enemyHealth: {fileID: 11400000, guid: 1b68d864bbcc35e46918484cc0c0ec96, type: 2}
---- !u!114 &4008503726953686079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963691363130237361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c4b5367d14e924fa5f6d777c8bbdc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackPower: 1
-  damageEvent: {fileID: 11400000, guid: f25ffb8d3b4a12c48bbd3859110282e5, type: 2}
---- !u!114 &3166015544576530852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963691363130237361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f250ffecc73354da636b369bb15248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBeforeDie: 1
-  enemy: {fileID: 11400000, guid: 1b68d864bbcc35e46918484cc0c0ec96, type: 2}
-  onEnemyHit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6963691363130237390}
-        m_TargetAssemblyTypeName: EnemyAnimation, Assembly-CSharp
-        m_MethodName: OnHit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onEnemyDead:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6963691363130237390}
-        m_TargetAssemblyTypeName: EnemyAnimation, Assembly-CSharp
-        m_MethodName: OnDead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5999829808984925711}
-        m_TargetAssemblyTypeName: AudioTrigger, Assembly-CSharp
-        m_MethodName: PlayAudio
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 6996b496eb8b0034cab212233007d3b2, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6963691363485872719
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +461,7 @@ MonoBehaviour:
   onCollisionsEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5999829808984925711}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioTrigger, Assembly-CSharp
         m_MethodName: PlayAudio
         m_Mode: 2
@@ -552,144 +479,3 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &7660281321245123002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8989406988490417971}
-  - component: {fileID: 1663403377876907737}
-  - component: {fileID: 5999829808984925711}
-  m_Layer: 7
-  m_Name: AudioEffects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8989406988490417971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7660281321245123002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6963691363130237373}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1663403377876907737
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7660281321245123002}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &5999829808984925711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7660281321245123002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85e82d3680058bb4d9faf0fa0ab0c720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
