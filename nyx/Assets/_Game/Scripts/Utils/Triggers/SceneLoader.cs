@@ -1,22 +1,22 @@
-using UnityEngine;
-using ScriptableObjectArchitecture;
+//using UnityEngine;
+//using ScriptableObjectArchitecture;
 
-public class SceneLoader : MonoBehaviour
-{
-    [Header("Configuration")]
-    public SceneSO sceneToLoad;
-    public bool loadingScreen;
+//public class SceneLoader : MonoBehaviour
+//{
+//    [Header("Configuration")]
+//    public SceneSO sceneToLoad;
+//    public bool loadingScreen;
 
-    [Header("Broadcasting Events")]
-    public LoadSceneRequestGameEvent loadSceneEvent;
+//    [Header("Broadcasting Events")]
+//    public LoadSceneRequestGameEvent loadSceneEvent;
 
-    public void LoadScene()
-    {
-        var request = new LoadSceneRequest(
-            scene: sceneToLoad,
-            loadingScreen: loadingScreen
-        );
+//    public void LoadScene()
+//    {
+//        var request = new LoadSceneRequest(
+//            scene: sceneToLoad,
+//            loadingScreen: loadingScreen
+//        );
 
-        loadSceneEvent.Raise(request);
-    }
-}
+//        loadSceneEvent.Raise(request);
+//    }
+//}

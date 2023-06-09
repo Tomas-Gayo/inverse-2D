@@ -1,46 +1,46 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.Events;
-using ScriptableObjectArchitecture;
+//using System.Collections;
+//using UnityEngine;
+//using UnityEngine.Events;
+//using ScriptableObjectArchitecture;
 
-public class CoinCollision : MonoBehaviour
-{
-    [Header("Configuration")]
-    public float timeBeforeDestroy;
+//public class CoinCollision : MonoBehaviour
+//{
+//    [Header("Configuration")]
+//    public float timeBeforeDestroy;
 
-    [Header("Unity Events")]
-    public UnityEvent OnPicked;
+//    [Header("Unity Events")]
+//    public UnityEvent OnPicked;
 
-    [Header("Broadcasting on")]
-    public GameEvent itemPicked;
+//    [Header("Broadcasting on")]
+//    public GameEvent itemPicked;
 
-    // Private reference
-    private bool isCollected;
+//    // Private reference
+//    private bool isCollected;
 
-    private void Start()
-    {
-        isCollected = false;
-    }
+//    private void Start()
+//    {
+//        isCollected = false;
+//    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && !isCollected)
-        {
-            isCollected = true;
+//    private void OnTriggerEnter2D(Collider2D collision)
+//    {
+//        if (collision.CompareTag("Player") && !isCollected)
+//        {
+//            isCollected = true;
 
-            if (OnPicked != null)
-                OnPicked.Invoke();
+//            if (OnPicked != null)
+//                OnPicked.Invoke();
 
-            itemPicked.Raise();
+//            itemPicked.Raise();
 
-            StartCoroutine(DestroyCoin());
-        }
-    }
+//            StartCoroutine(DestroyCoin());
+//        }
+//    }
 
-    private IEnumerator DestroyCoin()
-    {
-        yield return new WaitForSeconds(timeBeforeDestroy);
+//    private IEnumerator DestroyCoin()
+//    {
+//        yield return new WaitForSeconds(timeBeforeDestroy);
 
-        Destroy(gameObject);
-    }
-}
+//        Destroy(gameObject);
+//    }
+//}
