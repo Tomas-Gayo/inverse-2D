@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5563128718326196797}
   - component: {fileID: 7357750789397135585}
+  - component: {fileID: 3408941635148093244}
   m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
@@ -48,6 +49,52 @@ CircleCollider2D:
   m_Offset: {x: 0.10182701, y: -0.08390781}
   serializedVersion: 2
   m_Radius: 0.44451144
+--- !u!114 &3408941635148093244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204749873423982621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484603b6fa5b9024895a801aed4ede6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validTag: {fileID: 11400000, guid: 959df74bbf00d044e93600b9e75587e3, type: 2}
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4008503726953686079}
+        m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4008503726953686079}
+        m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3569408360951039014
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +285,6 @@ GameObject:
   - component: {fileID: 6963691363130237390}
   - component: {fileID: 4008503726953686079}
   - component: {fileID: 3166015544576530852}
-  - component: {fileID: 5884765876753472692}
   m_Layer: 7
   m_Name: Mushroom
   m_TagString: Enemy
@@ -413,52 +459,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5884765876753472692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963691363130237361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484603b6fa5b9024895a801aed4ede6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  validTag: {fileID: 11400000, guid: 959df74bbf00d044e93600b9e75587e3, type: 2}
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4008503726953686079}
-        m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
-        m_MethodName: Attack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTriggerStay:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4008503726953686079}
-        m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
-        m_MethodName: Attack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTriggerExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6963691363485872719
 GameObject:
   m_ObjectHideFlags: 0

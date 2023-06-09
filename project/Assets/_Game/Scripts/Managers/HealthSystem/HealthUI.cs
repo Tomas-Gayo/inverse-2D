@@ -6,14 +6,8 @@ public class HealthUI : MonoBehaviour
 {
     [Header("Dependencies")]
     public GameObject heartParent;
-    public Sprite fullHeartSprite;
-    public Sprite emptyHeartSprite;
-
-    [Header("Rect Transform Configuration")]
-    [Tooltip("Original position of the group of hearts.")]
-    public Vector2 heartsPosition;
-    [Tooltip("Distance between hearts")]
-    public Vector2 heartDistance;
+    public UnityEngine.Sprite fullHeartSprite;
+    public UnityEngine.Sprite emptyHeartSprite;
 
     // Private references
     private List<HeartImage> heartImage;
@@ -33,25 +27,18 @@ public class HealthUI : MonoBehaviour
     // Shows all the hearts in scene
     public void DisplayHearts()
     {
-        Vector2 heartAnchoredPosition = heartsPosition;
         for (int i = 0; i < heart.Count; i++)
         {
             Heart heart = this.heart[i];
-            CreateHeartImage(heartAnchoredPosition).SetHeartSprite(heart.IsDamaged());
-            heartAnchoredPosition += heartDistance;
+            CreateHeartImage().SetHeartSprite(heart.IsDamaged());
         }
     }
 
     // Creates a heart image object
-    private HeartImage CreateHeartImage(Vector2 position)
+    private HeartImage CreateHeartImage()
     {
         GameObject heartGO = new ("Heart", typeof(Image));
         heartGO.transform.SetParent(heartParent.transform);
-
-        RectTransform rect = heartGO.GetComponent<RectTransform>();
-        rect.anchoredPosition = position;
-        //rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, heartSize.x);
-        //rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, heartSize.y);
 
         Image heartImage = heartGO.GetComponent<Image>();
 

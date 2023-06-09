@@ -13,10 +13,6 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Dependencies")]
     public HealthSO player;
-    public AudioSource audioSource;
-
-    [Header("Audio")]
-    public AudioClip hurtClip;
 
     [Header("Broadcasting on")]
     public GameEvent updateHealthUI;
@@ -43,7 +39,6 @@ public class PlayerHealth : MonoBehaviour
 
         // Take damage & update HUD
         player.TakeDamege(damage);
-        PlayAudioClip(hurtClip);
 
         onPlayerHit?.Invoke();
         updateHealthUI?.Raise();
@@ -75,13 +70,5 @@ public class PlayerHealth : MonoBehaviour
 
         isDead = false;
     }
-
-    private void PlayAudioClip(AudioClip audio)
-    {
-        if (audio != null)
-        {
-            audioSource.clip = audio;
-            audioSource.Play();
-        }
-    }
 }
+
