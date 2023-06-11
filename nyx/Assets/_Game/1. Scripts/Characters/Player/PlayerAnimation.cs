@@ -1,27 +1,41 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
     [Header("Dependencies")]
-    public Animator animator;
-    public HealthSO playerHealth;
+    public Rigidbody2D rb;
+    public CircleChecker GroundChecker;
+    public InputReader InputReader;
+    [Header("Configuration")]
+    public Transform GroundPoint;
 
-    // Private reference
-    private Vector2 velocity;
 
-    // Unity methods
-    private void FixedUpdate()
+    Animator animator;
+
+    #region SetCallbacks
+    private void OnEnable()
     {
+        
+    }
 
+    private void OnDisable()
+    {
+        
+    }
+    #endregion
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 
     private void LateUpdate()
     {
-        animator.SetBool("IsMoving", velocity.normalized.x != 0);
-        animator.SetFloat("yVelocity", velocity.normalized.y);
+        animator.SetBool("IsMoving", Mathf.Abs(rb.velocity.x) > 0.1);
+        animator.SetFloat("yVelocity", rb.velocity.normalized.y);
+        animator.SetBool("IsGrounded", GroundChecker.HasContanctWith(GroundPoint.position));
         //animator.SetBool("IsAttacking", player.isAttacking);
-        //animator.SetBool("IsGrounded", player.IsGrounded());
-        animator.SetBool("IsDead", playerHealth.IsDead());
     }
 
     public void OnHurt()
@@ -33,4 +47,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetTrigger("Dead");
     }
+
+    #region Inputs Listeners
+    #endregion
 }

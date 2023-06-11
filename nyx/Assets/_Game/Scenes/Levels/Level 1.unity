@@ -1744,7 +1744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6996927, y: -2.1175742, z: 40}
+  m_LocalPosition: {x: 0.04969263, y: -4.637574, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2957,7 +2957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801195562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6996927, y: -2.1175742, z: 40}
+  m_LocalPosition: {x: 0.04969263, y: -4.637574, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4781,7 +4781,7 @@ Tilemap:
       - {fileID: 3950479018132473971, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: -6387735621270283062, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: 2657703126979764175, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -1, z: 0}
@@ -4811,7 +4811,7 @@ Tilemap:
       - {fileID: 3950479018132473971, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: -6387735621270283062, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: 2657703126979764175, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: 2, z: 0}
@@ -21575,49 +21575,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 595797724}
     m_Modifications:
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: jump
-      value: 
-      objectReference: {fileID: 11400000, guid: 7b1e6728a3c037948acbad1ce3169b09, type: 2}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: speed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: movement
-      value: 
-      objectReference: {fileID: 11400000, guid: abdc3e5e5168a9f4fb9135caaa3dd179, type: 2}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: maxJumpTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: applyGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: maxJumpHeight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: fallMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914681262816287591, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
-      propertyPath: PlayerStatsChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 2fcc40c3abbce474b849f78a703cf52c, type: 2}
     - target: {fileID: 8541458012558981223, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541458012558981223, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.65
       objectReference: {fileID: 0}
     - target: {fileID: 8541458012558981223, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.52
       objectReference: {fileID: 0}
     - target: {fileID: 8541458012558981223, guid: 9008a2feec427ca4aafd94a3933bac81, type: 3}
       propertyPath: m_LocalPosition.z

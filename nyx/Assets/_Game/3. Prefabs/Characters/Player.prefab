@@ -315,8 +315,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputReader: {fileID: 11400000, guid: 13f0543ffbe4b3347908222160077e5b, type: 2}
   GroundChecker: {fileID: 11400000, guid: 669dbf241f13ab34fa410ab9ce5f7633, type: 2}
-  MovementData: {fileID: 11400000, guid: 1a032d6adca1bd24180b43178758b873, type: 2}
   GroundPoint: {fileID: 8541458012600719076}
+  movement: {fileID: 11400000, guid: abdc3e5e5168a9f4fb9135caaa3dd179, type: 2}
+  jump: {fileID: 11400000, guid: 7b1e6728a3c037948acbad1ce3169b09, type: 2}
 --- !u!1 &8541458012600719083
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +363,7 @@ GameObject:
   - component: {fileID: 3689810558489817937}
   - component: {fileID: 4028075203294229443}
   m_Layer: 0
-  m_Name: Sprites
+  m_Name: Sprite&Animations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,5 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a964aa8de130d49970ae811dc3c1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8964222391613524994}
-  playerHealth: {fileID: 11400000, guid: 44e3c2012bafd204f82bdef332bbaa62, type: 2}
+  rb: {fileID: 8541458012558981222}
+  GroundChecker: {fileID: 11400000, guid: 669dbf241f13ab34fa410ab9ce5f7633, type: 2}
+  InputReader: {fileID: 11400000, guid: 13f0543ffbe4b3347908222160077e5b, type: 2}
+  GroundPoint: {fileID: 8541458012600719076}
