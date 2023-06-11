@@ -13,29 +13,29 @@ public class Player : MonoBehaviour
     [SerializeField] private Movement movement;
     [SerializeField] private Jump jump;
 
-
     // References
     Rigidbody2D rb;
 
-    // Private variables
+    // Input variables
     float x_Axis;
-    float xMovement;
-    float yMovement;
+    bool isJumpPressed;
+    // Physics variables
     bool isJumping;
 
-    public float X_Axis { get; set; }
 
     #region SetCallbacks
     private void OnEnable()
     {
         InputReader.MoveEvent += OnMove;
-        InputReader.JumpPerformedEvent += OnJumpPerformed;
+        InputReader.JumpStartedEvent += OnJumpStarted;
+        InputReader.JumpCanceledEvent += OnJumpCanceled;    
     }
 
     private void OnDisable()
     {
         InputReader.MoveEvent -= OnMove;
-        InputReader.JumpPerformedEvent -= OnJumpPerformed;
+        InputReader.JumpStartedEvent -= OnJumpStarted;
+        InputReader.JumpCanceledEvent -= OnJumpCanceled;
     }
     #endregion
 
@@ -48,38 +48,48 @@ public class Player : MonoBehaviour
     private void Start()
     {
         x_Axis = 0;
-        xMovement = 0.0f;
-        yMovement = 0.0f;
+        isJumpPressed = false;
         isJumping = false;
     }
     #endregion
 
-    private void Update()
-    {
-        UpdateJump();
-    }
-
+    #region Phyics
     private void FixedUpdate()
     {
         rb.velocity = UpdateMovement();
+
+        UpdateGravity();
+        UpdateJump();
     }
 
     private Vector2 UpdateMovement()
     {
-        xMovement = movement.CalculateHoritzontal(x_Axis, Time.fixedDeltaTime);
+        float xMovement = movement.CalculateHoritzontal(x_Axis, Time.fixedDeltaTime);
 
         return new Vector2(xMovement, rb.velocity.y);
     }
 
     private void UpdateJump()
     {
-        if (isJumping && GroundChecker.HasContanctWith(GroundPoint.position))
+        if (isJumpPressed && GroundChecker.HasContanctWith(GroundPoint.position) && !isJumping)
+        {
+            isJumping = true;
+            jump.SetGravity(isJumping);
+            float jumpForce = jump.CalculateForce(Physics2D.gravity.y, rb.mass);
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        } 
+        else if (!isJumpPressed && GroundChecker.HasContanctWith(GroundPoint.position) && isJumping)
         {
             isJumping = false;
-            yMovement = jump.CalculateForce(rb.mass);
-            rb.AddForce(new Vector2(0, yMovement), ForceMode2D.Impulse);
         }
     }
+
+    private void UpdateGravity()
+    {
+        bool isFalling = rb.velocity.y <= 0.0f || !isJumpPressed;
+        jump.SetGravity(isFalling);
+    }
+    #endregion
 
     #region Inputs Listeners
     private void OnMove(float input)
@@ -87,9 +97,14 @@ public class Player : MonoBehaviour
         x_Axis = input;
     }
 
-    private void OnJumpPerformed()
+    private void OnJumpStarted()
     {
-        isJumping = true;
+        isJumpPressed = true;
+    }
+
+    private void OnJumpCanceled()
+    {
+        isJumpPressed = false;
     }
     #endregion
 }

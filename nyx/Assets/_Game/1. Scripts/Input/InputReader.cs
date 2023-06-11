@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class InputReader : ScriptableObject, PlayerInputs.IGameplayActions
 {
     public event UnityAction<float> MoveEvent = delegate { };
-    public event UnityAction JumpPerformedEvent = delegate { };
+    public event UnityAction JumpStartedEvent = delegate { };
     public event UnityAction JumpCanceledEvent = delegate { };
     public event UnityAction DashEvent = delegate { };
     public event UnityAction AttackEvent = delegate { };
@@ -36,10 +36,11 @@ public class InputReader : ScriptableObject, PlayerInputs.IGameplayActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
+
         switch (context.phase)
         {
-            case InputActionPhase.Performed:
-                JumpPerformedEvent.Invoke();
+            case InputActionPhase.Started:
+                JumpStartedEvent.Invoke();
                 break;
             case InputActionPhase.Canceled:
                 JumpCanceledEvent.Invoke();

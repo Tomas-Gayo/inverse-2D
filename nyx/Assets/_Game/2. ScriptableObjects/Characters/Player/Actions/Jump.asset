@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19d379def0af1045a1866cf7d699c34, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  force: 25
+  force: 10
+  height: 3
+  gravityScale: 2
+  fallGravityScale: 6

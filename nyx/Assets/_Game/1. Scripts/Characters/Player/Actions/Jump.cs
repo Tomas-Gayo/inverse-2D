@@ -6,12 +6,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Jump", menuName = "Scriptable Objects/Player/Actions/Jump")]
 public class Jump : ScriptableObject
 {
-    [SerializeField] private float force;
+    [SerializeField] private float height;
+    [SerializeField] private float gravityScale;
+    [SerializeField] private float fallGravityScale;
 
-    public float Force { get { return force; } set { force = value; } }
-
-    public float CalculateForce(float mass)
+    public float CalculateForce(float gravity, float mass)
     {
-        return force / mass;
+        return Mathf.Sqrt(height * (gravity * gravityScale * -2) * mass);
+    }
+
+    public float SetGravity(bool isJumping)
+    {
+        float gravity = isJumping ? gravityScale : fallGravityScale;
+
+        return gravity;
     }
 }
