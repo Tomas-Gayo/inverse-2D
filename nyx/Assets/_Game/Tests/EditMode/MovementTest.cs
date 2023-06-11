@@ -44,28 +44,4 @@ public class MovementTest
 
         Assert.AreEqual(0.0f, movement.CalculateHoritzontal(direction, 1.0f));
     }
-
-    //[Test]
-    //public void Move_Along_Y_Axis_Jump()
-    //{
-    //    Movement Movement = new Movement(0.0f, 5.0f);
-
-    //    Assert.AreEqual(5.0f, Movement.CalculateVertical(1.0f));
-    //}
-
-    //[Test]
-    //public void Move_Along_Y_Axis_Jump_Zero_Force()
-    //{
-    //    Movement Movement = new Movement(0.0f, 0.0f);
-
-    //    Assert.AreEqual(0.0f, Movement.CalculateVertical(1.0f));
-    //}
-
-    //[Test]
-    //public void Move_Along_Y_Axis_Jump_Zero_Mass()
-    //{
-    //    Movement Movement = new Movement(0.0f, 1.0f);
-
-    //    Assert.AreEqual(Mathf.Infinity, Movement.CalculateVertical(0.0f));
-    //}
 }

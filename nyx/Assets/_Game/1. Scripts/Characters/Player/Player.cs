@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region Phyics
+    #region Physics
     private void FixedUpdate()
     {
         rb.velocity = UpdateMovement();
@@ -74,8 +74,9 @@ public class Player : MonoBehaviour
         if (isJumpPressed && GroundChecker.HasContanctWith(GroundPoint.position) && !isJumping)
         {
             isJumping = true;
-            jump.SetGravity(isJumping);
+            rb.gravityScale = jump.SetGravityScale(isJumping);
             float jumpForce = jump.CalculateForce(Physics2D.gravity.y, rb.mass);
+            // Impulse formula is force * time (Acceleration = Force * Time / Mass)
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         } 
         else if (!isJumpPressed && GroundChecker.HasContanctWith(GroundPoint.position) && isJumping)
@@ -87,7 +88,7 @@ public class Player : MonoBehaviour
     private void UpdateGravity()
     {
         bool isFalling = rb.velocity.y <= 0.0f || !isJumpPressed;
-        jump.SetGravity(isFalling);
+        rb.gravityScale = jump.SetGravityScale(isFalling);
     }
     #endregion
 
