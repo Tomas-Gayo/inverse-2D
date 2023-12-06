@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     {
         InputReader.MoveEvent += OnMove;
         InputReader.JumpStartedEvent += OnJumpStarted;
-        InputReader.JumpCanceledEvent += OnJumpCanceled;    
+        InputReader.JumpCanceledEvent += OnJumpCanceled;   
     }
 
     private void OnDisable()

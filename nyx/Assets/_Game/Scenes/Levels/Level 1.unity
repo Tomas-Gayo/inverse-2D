@@ -1744,7 +1744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04969263, y: -4.637574, z: 40}
+  m_LocalPosition: {x: 0.06686306, y: -4.637574, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2957,7 +2957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801195562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04969263, y: -4.637574, z: 40}
+  m_LocalPosition: {x: 0.06686306, y: -4.637574, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2994,7 +2994,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6, y: 1}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4781,7 +4781,7 @@ Tilemap:
       - {fileID: 3950479018132473971, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: -6387735621270283062, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: 2657703126979764175, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -1, z: 0}
@@ -4831,7 +4831,7 @@ Tilemap:
       - {fileID: 3950479018132473971, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: -6387735621270283062, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
       - {fileID: 2657703126979764175, guid: 8e0b860405b8c934386718f7760e18ca, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: 4, z: 0}

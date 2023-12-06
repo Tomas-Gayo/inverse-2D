@@ -3196,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6963691363130237373, guid: 1f5eef80334c3184ba454f28fc70cd08, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f5eef80334c3184ba454f28fc70cd08, type: 3}
@@ -3465,7 +3465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66acfe1e34734d4f9761f269acf82f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 11400000, guid: 1d5ee288f95baa54fae8aa82d3e2ecc4, type: 2}
 --- !u!114 &8306523075391990592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3635,9 +3634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0eb631132fbd764d8a95744447f175d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: {fileID: 11400000, guid: 5963b42127a9e714399427c544804250, type: 2}
-  loadingScreen: 1
-  loadSceneEvent: {fileID: 11400000, guid: ebca4cc1964abb14c94783b7f94da7dc, type: 2}
 --- !u!224 &8306523076421594692
 RectTransform:
   m_ObjectHideFlags: 0
