@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     [Header("Actions")]
     [SerializeField] private Movement movement;
     [SerializeField] private Jump jump;
+    [SerializeField] private Dash dash;
 
     // References
     Rigidbody2D rb;
@@ -19,8 +21,12 @@ public class Player : MonoBehaviour
     // Input variables
     float x_Axis;
     bool isJumpPressed;
+    bool isDashPressed;
     // Physics variables
     bool isJumping;
+    bool isDashing;
+    // State varaibles
+    bool canDash; // Later on this will be manage by a state machine
 
 
     #region SetCallbacks
@@ -28,7 +34,9 @@ public class Player : MonoBehaviour
     {
         InputReader.MoveEvent += OnMove;
         InputReader.JumpStartedEvent += OnJumpStarted;
-        InputReader.JumpCanceledEvent += OnJumpCanceled;   
+        InputReader.JumpCanceledEvent += OnJumpCanceled;
+        InputReader.DashStartedEvent += OnDashStarted;
+        InputReader.DashCanceledEvent += OnDashCanceled;
     }
 
     private void OnDisable()
@@ -36,6 +44,8 @@ public class Player : MonoBehaviour
         InputReader.MoveEvent -= OnMove;
         InputReader.JumpStartedEvent -= OnJumpStarted;
         InputReader.JumpCanceledEvent -= OnJumpCanceled;
+        InputReader.DashStartedEvent -= OnDashStarted;
+        InputReader.DashCanceledEvent -= OnDashCanceled;
     }
     #endregion
 
@@ -50,6 +60,8 @@ public class Player : MonoBehaviour
         x_Axis = 0;
         isJumpPressed = false;
         isJumping = false;
+        isDashing = false;
+        canDash = true;
     }
     #endregion
 
@@ -60,6 +72,7 @@ public class Player : MonoBehaviour
 
         UpdateGravity();
         UpdateJump();
+        UpdateDash();
     }
 
     private Vector2 UpdateMovement()
@@ -84,11 +97,30 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
     }
+    private void UpdateDash()
+    {
+        if (isDashPressed & !isDashing & canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            float dashForce = dash.CalculateForceVector(x_Axis);
+            rb.AddForce(new(dashForce,0), ForceMode2D.Impulse);
 
+            StartCoroutine(DashTimer(dash.DashingTime, dash.DashCD));
+        }
+    }
+    
     private void UpdateGravity()
     {
-        bool isFalling = rb.velocity.y <= 0.0f || !isJumpPressed;
-        rb.gravityScale = jump.SetGravityScale(isFalling);
+        if (!isDashing)
+        {
+            bool isFalling = rb.velocity.y <= 0.0f || !isJumpPressed;
+            rb.gravityScale = jump.SetGravityScale(isFalling);
+        }
+        else if (isDashing)
+        {
+            rb.gravityScale = 0.0f;
+        }
     }
     #endregion
 
@@ -107,5 +139,23 @@ public class Player : MonoBehaviour
     {
         isJumpPressed = false;
     }
+
+    private void OnDashStarted()
+    {
+        isDashPressed = true;
+    }
+
+    private void OnDashCanceled()
+    {
+        isDashPressed = false;
+    }
     #endregion
+
+    private IEnumerator DashTimer(float duration ,float cooldDown)
+    {
+        yield return new WaitForSeconds(duration);
+        isDashing = false;
+        yield return new WaitForSeconds(cooldDown);
+        canDash = true;
+    }
 }

@@ -8,7 +8,8 @@ public class InputReader : ScriptableObject, PlayerInputs.IGameplayActions
     public event UnityAction<float> MoveEvent = delegate { };
     public event UnityAction JumpStartedEvent = delegate { };
     public event UnityAction JumpCanceledEvent = delegate { };
-    public event UnityAction DashEvent = delegate { };
+    public event UnityAction DashStartedEvent = delegate { };
+    public event UnityAction DashCanceledEvent = delegate { };
     public event UnityAction AttackEvent = delegate { };
 
     PlayerInputs playerInputs;
@@ -36,7 +37,6 @@ public class InputReader : ScriptableObject, PlayerInputs.IGameplayActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-
         switch (context.phase)
         {
             case InputActionPhase.Started:
@@ -47,11 +47,17 @@ public class InputReader : ScriptableObject, PlayerInputs.IGameplayActions
                 break;
         }
     }
+
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        switch (context.phase)
         {
-            DashEvent.Invoke();
+            case InputActionPhase.Started:
+                DashStartedEvent.Invoke();
+                break;
+            case InputActionPhase.Canceled:
+                DashCanceledEvent.Invoke();
+                break;
         }
     }
 
